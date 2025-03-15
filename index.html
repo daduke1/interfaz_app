@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page - FILMEX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style> <!-- landing page -->
+        body {
+            background-color: #1c1c1c;
+            color: white;
+        }
+        .hero-section {
+            background: url('https://source.unsplash.com/1600x900/?cinema') no-repeat center center; 
+            background-size: cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            padding: 50px 20px;
+        }
+        .movie-card img {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">FILMEX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Explorar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Iniciar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-overlay text-white">
+            <h1 class="display-4">Descubre, comparte y califica películas</h1>
+            <p class="lead">Explora miles de reseñas, crea tu lista de favoritos y únete a la comunidad.</p>
+            <a href="#" class="btn btn-primary">Regístrate Gratis!</a>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Películas Populares</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card movie-card bg-dark text-white">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fc8.alamy.com%2Fcompes%2Fe5myae%2Fy-tu-mama-tambien-diego-luna-maribel-verdu-gael-garcia-bernal-2001-e5myae.jpg&f=1&nofb=1&ipt=fdb60b8dd7608c60f5df2952b59b579108655f7fae4375352859042e6f9d280c&ipo=images" class="card-img-top" alt="Y tu mamá también">
+                    <div class="card-body">
+                        <h5 class="card-title">Y tu mamá también</h5>
+                        <p class="card-text">★★★★★</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card movie-card bg-dark text-white">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fn3QrQvLM7lZ9AGExvG89OREkCXW.jpg&f=1&nofb=1&ipt=2d6d57c41e8f4df89db494d8c29f9b9be712fd3f07d1851e7e8fee27f1e8fc4a&ipo=images" class="card-img-top" alt="Amores Perros">
+                    <div class="card-body">
+                        <h5 class="card-title">Amores Perros</h5>
+                        <p class="card-text">★★★★☆</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-center text-white py-3">
+        <p>&copy; 2025 FILMEX - Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
