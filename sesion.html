@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">FILMEX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="#">Explorar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sesion.html">Iniciar sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registro.html">Registrarse</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Carrito.html">
+                            Carrito <i class="fas fa-shopping-cart"></i> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="login">
+            <div class="login-screen">
+                <div class="app-title">
+                    <h1>Welcome to FILMEX</h1>
+                </div>
+    
+                <div class="login-form">
+                    <div class="control-group">
+                    <input type="email" class="login-field" value="" placeholder="correo electrónico" id="login-email">
+                    <label class="login-field-icon fui-user" for="login-email"></label>
+                    </div>
+    
+                    <div class="control-group">
+                    <input type="password" class="login-field" value="" placeholder="contraseña" id="login-pass">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                    </div>
+    
+                    <a class="btn btn-primary btn-large btn-block" href="#">Login</a>
+                    <a class="login-link" href="#">Lost your password?</a>
+                    <a class="login-link" href="registro.html">¿No tienes cuenta? Regístrate aquí</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+</html>        
