@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const loginForm = document.querySelector('.btn-primary');
-    const emailInput = document.getElementById('login-email');
-    const passwordInput = document.getElementById('login-pass');
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('loginEmail');
+    const passwordInput = document.getElementById('loginPassword');
 
     // agregar elementos de mensaje de error
     const emailError = document.createElement('div');
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function validateForm() {
         let isValid = true;
         
-        // validación de correo electrónico
         if (!validateEmail(emailInput.value)) {
             emailError.textContent = 'Por favor, ingresa un correo electrónico válido';
             emailInput.classList.add('input-error');
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
             emailInput.classList.remove('input-error');
         }
 
-        // validación de contraseña
         if (!validatePassword(passwordInput.value)) {
             passwordError.textContent = 'La contraseña debe tener al menos 8 caracteres y una mayúscula';
             passwordInput.classList.add('input-error');
@@ -87,12 +85,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // envío del formulario
-    loginForm.addEventListener('click', function(e) {
+    loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        if (validateForm()) {
-            // aquí típicamente enviarías los datos del formulario a tu servidor
-            console.log('Formulario válido, procediendo con el inicio de sesión...');
+        
+        if (!validateForm()) return;
+        
+        const auth = new AuthSystem();
+        const result = auth.login(emailInput.value, passwordInput.value);
+        
+        if (result.success) {
+            showToast(result.message);
+            updateAuthUI();
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        } else {
+            showToast(result.message, 'danger');
         }
     });
 });
