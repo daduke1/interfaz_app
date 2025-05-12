@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const registerForm = document.querySelector('.btn-primary');
+    const registerForm = document.getElementById('registerForm');
     const nameInput = document.getElementById('register-name');
     const emailInput = document.getElementById('register-email');
     const passwordInput = document.getElementById('register-pass');
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(style);
 
     function validateName(name) {
-        return name.length >= 3; // At least 3 characters
+        return name.length >= 3;
     }
 
     function validateEmail(email) {
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function validateForm() {
         let isValid = true;
         
-        // validación de nombre
         if (!validateName(nameInput.value)) {
             nameError.textContent = 'El nombre debe tener al menos 3 caracteres';
             nameInput.classList.add('input-error');
@@ -67,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
             nameInput.classList.remove('input-error');
         }
 
-        // validación de correo electrónico
         if (!validateEmail(emailInput.value)) {
             emailError.textContent = 'Por favor, ingresa un correo electrónico válido';
             emailInput.classList.add('input-error');
@@ -77,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
             emailInput.classList.remove('input-error');
         }
 
-        // validación de contraseña
         if (!validatePassword(passwordInput.value)) {
             passwordError.textContent = 'La contraseña debe tener al menos 8 caracteres y una mayúscula';
             passwordInput.classList.add('input-error');
@@ -87,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
             passwordInput.classList.remove('input-error');
         }
 
-        // validación de contraseña confirmada
         if (!validateConfirmPassword(passwordInput.value, confirmPasswordInput.value)) {
             confirmPasswordError.textContent = 'Las contraseñas no coinciden';
             confirmPasswordInput.classList.add('input-error');
@@ -149,12 +145,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // envío del formulario
-    registerForm.addEventListener('click', function(e) {
+    registerForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        if (validateForm()) {
-            // aquí típicamente enviarías los datos del formulario a tu servidor
-            console.log('Formulario válido, procediendo con el registro...');
+
+        if (!validateForm()) return;
+        
+        const auth = new AuthSystem();
+        const result = auth.register(
+            nameInput.value,
+            emailInput.value,
+            passwordInput.value
+        );
+        
+        if (result.success) {
+            showToast(result.message);
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        } else {
+            if (result.message.includes('correo ya está registrado')) {
+                emailError.textContent = result.message;
+                emailInput.classList.add('input-error');
+            }
+            showToast(result.message, 'danger');
         }
     });
 });

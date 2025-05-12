@@ -3,59 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
+    <title>Carrito de Compras - FILMEX</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            background-color: rgb(201, 229, 240);
-            color: #ecf1ef;
-        }
-        .hero-section {
-            background: url('https://source.unsplash.com/1600x900/?cinema') no-repeat center center; 
-            background-size: cover;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-        .hero-overlay {
-            background: #0abfed;
-            width: 100%;
-            padding: 50px 20px;
-        }
-        .movie-card img {
-            border-radius: 8px;
-        }
-        .movie-card {
-            background-color: #333;
-        }
-        .card-body {
-            background-color: whitesmoke;
-        }
-        .btn-danger {
-            background-color: #e60000;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">FILMEX</a>
+        <a class="navbar-brand" href="index.html">FILMEX Store</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li> 
-                <li class="nav-item"><a class="nav-link" href="#">Explorar</a></li>
-                <li class="nav-item"><a class="nav-link" href="sesion.html">Iniciar sesión</a></li>
-                <li class="nav-item"><a class="nav-link" href="registro.html">Registrarse</a></li>
                 <li class="nav-item">
                     <a class="nav-link" href="Carrito.html">
-                        Carrito <i class="fas fa-shopping-cart"></i> 
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                        <span class="badge bg-primary" id="cart-count">0</span>
                     </a>
+                </li>
+                
+                <li class="nav-item" id="purchasesNav" style="display: none;">
+                    <a class="nav-link" href="compras.html">
+                        <i class="fas fa-box-open"></i> Mis Compras
+                    </a>
+                </li>
+                
+                <li class="nav-item" id="loginNav">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+                    </a>
+                </li>
+                <li class="nav-item" id="registerNav">
+                    <a class="nav-link" href="registro.html">
+                        <i class="fas fa-user-plus"></i> Registrarse
+                    </a>
+                </li>
+                
+                <li class="nav-item" id="user-info" style="display: none;">
+                    <div class="nav-link">
+                        <span id="user-name"></span>
+                        <a href="#" id="logout" class="ms-2"><i class="fas fa-sign-out-alt"></i></a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -63,56 +55,52 @@
 </nav>
 
 <div class="container my-5">
-    <h2 class="text-center"> Carrito - FILMEX </h2>
+    <h2 class="text-center mb-4">Carrito de Compras</h2>
 
-    <div class="text-end">
-        <a href="index.html" class="btn btn-secondary mb-4">🏠 Home</a>
+    <div class="text-end mb-4">
+        <a href="index.html" class="btn btn-secondary">
+            <i class="fas fa-home"></i> Volver a la tienda
+        </a>
     </div>
 
-    <section class = "hero-section"> 
-        <div class="hero-overlay text-white">
-            <h1 class="display-4">Carrito de peliculas</h1>
-            <p class="lead">Revisa y administrs las peliculas que deseas comprar o rentar</p>
-        </div>
-    </section>
-
-    <div class="row">
-
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fc8.alamy.com%2Fcompes%2Fe5myae%2Fy-tu-mama-tambien-diego-luna-maribel-verdu-gael-garcia-bernal-2001-e5myae.jpg&f=1&nofb=1&ipt=fdb60b8dd7608c60f5df2952b59b579108655f7fae4375352859042e6f9d280c&ipo=images" class="card-img-top" alt="Y tu mamá también">
-                <div class="card-body">
-                    <h5 class="card-title">Y tu mamá tambien</h5>
-                    <p class="card-text">Precio: $120</p>
-                    <button class="btn btn-danger btn-sm w-100">Borrar</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2Fn3QrQvLM7lZ9AGExvG89OREkCXW.jpg&f=1&nofb=1&ipt=2d6d57c41e8f4df89db494d8c29f9b9be712fd3f07d1851e7e8fee27f1e8fc4a&ipo=images" class="card-img-top" alt="Amores Perros">
-                <div class="card-body">
-                    <h5 class="card-title">Amores Perros</h5>
-                    <p class="card-text">Precio: $100</p>
-                    <button class="btn btn-danger btn-sm w-100">Borrar</button>
-                </div>
-            </div>
-        </div>
+    <div class="row" id="cart-items">
     </div>
 
-    <div class="card mt-5 p-3">
-        <h4 class="text-center">Resumen de la Compra</h4>
-        <p><strong>Total:</strong> $220</p>
-        <p><strong>Opciones de Pago:</strong> Tarjeta de crédito, PayPal, Transferencia bancaria.</p>
+    <div class="card mt-5 p-4">
+        <h4 class="text-center mb-3">Resumen de la Compra</h4>
+        <div class="mb-3">
+            <h5>Total: $<span id="total-price">0</span></h5>
+        </div>
+        <div class="mb-3">
+            <p><i class="fas fa-credit-card"></i> Métodos de pago: Tarjeta, PayPal, Transferencia</p>
+        </div>
         <div class="d-flex justify-content-between">
-            <button class="btn btn-warning">Cancelar</button>
-            <button class="btn btn-success">Pagar Ahora</button>
+            <button class="btn btn-warning" onclick="cancelOrder()">
+                <i class="fas fa-times"></i> Cancelar
+            </button>
+            <button class="btn btn-success" onclick="checkout()">
+                <i class="fas fa-check"></i> Pagar Ahora
+            </button>
         </div>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/auth-system.js"></script>
+<script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const auth = new AuthSystem();
+    if (!auth.currentUser) {
+        window.location.href = 'sesion.html';
+    } else {
+        loadCart();
+        renderCart();
+        updateAuthUI();
+    }
+});
+</script>
+
+<script src="script.js"></script>
 </body>
 </html>
-

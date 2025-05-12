@@ -1,0 +1,3 @@
+# Ignorar archivos de configuración y claves
+.env
+*.env
